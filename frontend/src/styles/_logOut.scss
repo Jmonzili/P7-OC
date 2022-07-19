@@ -1,0 +1,51 @@
+.logOut-container{
+    width: 100%;
+    height: 80%;
+    &_img{
+        @include size();
+        object-fit: cover;
+        position: relative;
+        margin: auto;
+    }
+    &_text{
+        font-size: 1.2rem;
+    }
+    &_header{
+        @include light ($color-6, 55);
+        font-size: 1.5rem;
+        height: 10%;
+    }
+    &_writter{
+        @include mediaTwo();
+    }
+   
+}
+.logout-card{
+    width: 90%;
+    margin: 3rem auto;
+    background-color: white;
+    min-height: 10rem;
+    box-shadow: 0px 0px 11px 1px rgba(0,0,0,0.76);
+    font-family: $font-1;
+    font-weight: 700;
+    border-radius: 0px 0px 10px 10px;
+    border-color: $color-11;
+    @media screen and (max-width: 425px){
+        width: 100%;
+    }
+    @media screen and (min-width: 622px){
+        display: flex;
+        width: 70%;
+    }
+    @media screen and (min-width: 1024px){
+        font-size: 1.5rem;
+     
+    }
+    &_btn{
+        font-size: 1rem;
+        @include media();
+        @media screen and (min-width: 1440px){
+            width: 18vw;
+        }
+    }
+}

@@ -1,0 +1,82 @@
+.connect{
+    @include flexbox();
+    @include size();
+    min-height: 100vh; 
+    background-color: $color-6;
+    margin-top: -0.5rem;
+    &_log{
+        display: flex;
+        height: 80%; 
+        min-height: 80vh; 
+        width: 80vw;
+        padding: 2rem;
+        margin: 2rem 2rem;
+        background-color: white;
+        flex-direction: row;
+        border-radius: 20px 20px;
+        box-shadow: 0px 0px 14px -3px #000000;
+    @media screen and (max-width: 1024px) {
+            width: 100%;
+            height: 80%;
+        }
+    }
+    &_container-log{
+        height: 100%;
+        @media screen and (min-width: 768px){
+            width: 50%;
+            height: 100%;
+        }
+    }
+    &_container-img{
+        width: 50%;
+        height: 100%;
+    }
+}
+.log--img{
+    object-fit: cover;
+    width: 100%;
+    max-height: 100%;
+    margin-left: 1rem;
+}
+
+.signUp_message{
+    color: green;
+    padding: 0.5rem 0rem 0rem 0rem;
+}
+.terms.error{
+    color: $color-8;
+}
+.password-confirm.error{
+    color: $color-8;
+}
+.form_log{
+    padding: 0.5rem 0rem 0rem;
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.logBtn{
+    font-size: 1.6rem;
+    color: $color-8;
+    @media screen and (max-width: 370px){
+        font-size: 1.2rem;
+    }
+}
+.email {
+    color: $color-8;
+}
+.username{
+    color: $color-8;
+}
+.password{
+    color: $color-8;
+}
+.btn-custom{
+    background-color: white;
+    color: $color-8;
+    border: 1px solid $color-8;
+    &:hover{
+        @include linearGradientTwo();
+        color: white;
+    }
+}

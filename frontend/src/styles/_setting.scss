@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&display=swap');
+
+$font-1: 'Lato', sans-serif;
+
+$color-8: #FD2D01;
+$color-7: #FFD7D7;
+$color-6: #4E5166;
+$color-9: black;
+$color-11: #DCDCDC;
+
+
+@mixin flexbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin light($color, $amount) {
+    background-color: lighten($color, $amount);
+}
+
+@mixin dark($color, $amount){
+    background-color: darken($color, $amount);
+}
+
+@mixin linearGradient {
+    background-image: linear-gradient(-10deg, $color-6, lighten($color-6, 25));
+}
+@mixin linearGradientTwo {
+    background-image: linear-gradient(-10deg, $color-8, lighten($color-8, 25));
+}
+
+@mixin media{
+    @media screen and (min-width: 425px){
+        font-size: 1.2rem;
+    }
+    @media screen and (min-width: 600px){
+        font-size: 1.4rem;
+    }
+    @media screen and (min-width: 1440px){
+        font-size: 1.6rem;
+    }
+}
+
+@mixin mediaTwo{
+    @media screen and (min-width: 600px){
+        font-size: 1.2rem;
+    }
+    @media screen and (min-width: 1000px){
+        font-size: 1.4rem;
+    }
+    @media screen and (min-width: 1440px){
+        font-size: 1.6rem;
+    }
+}
+
+@mixin size{
+    width: 100%;
+    height: 100%;
+}
+
+*{
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    font-size: 62.5%;
+}
+
+body{
+    font-family: $font-1;
+    font-weight: 400;
+}
+
+.btn{
+    cursor: pointer;
+}
+

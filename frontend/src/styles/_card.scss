@@ -1,0 +1,267 @@
+.card{
+    width: 90%;
+    margin: 3rem auto;
+    background-color: rgba(0, 0, 0, 0.001);
+    min-height: 10rem;
+    box-shadow: 0px 0px 11px 1px rgba(0,0,0,0.76);
+    font-family: $font-1;
+    font-weight: 700;
+    border-radius: 0px 0px 10px 10px;
+    border-color: $color-6;
+    @media screen and (max-width: 425px){
+        width: 100%;
+        margin: 3rem 0rem;
+        border: none;
+        border-radius: 0px;
+    }
+    @media screen and (min-width: 622px){
+        display: grid;
+        grid-template-columns: 0.5fr 3fr;
+        width: 70%;
+    }
+    @media screen and (min-width: 1024px){
+        font-size: 1.5rem;
+     
+    }
+    &_header{
+        @include light ($color-6, 50);
+        padding: 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px dotted $color-9;
+        @media screen and (min-width: 622px){
+            flex-direction: column;
+            margin: 1.5rem;
+            padding: 1rem;
+            box-shadow: 0px 0px 11px 1px $color-6;
+            min-width: 13rem;
+        }
+        &--title{
+            font-family: $font-1;
+            font-weight: 900;
+            font-size: 1.8rem;
+        }
+        &--size{
+            font-size: 1.8rem; 
+            @media screen and (min-width: 1200px){
+                font-size: 2rem;
+            }
+        }
+        
+    }
+    &_infos{
+        height: 100%;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &--content{
+            font-weight: 400;
+            font-size: 1.8rem;
+        }
+        &--imgContainer{
+            @include size();
+            padding-bottom: 1rem;
+            display: flex;
+            justify-content: center;
+   
+        }
+        &--img{
+            @include size();
+            max-width: 300px;
+            max-height: 500px;
+            object-fit: cover;
+            @media screen and (min-width: 800px){
+                max-width: 600px;
+             
+            }
+        }
+    }
+    &_footer{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        border-top: 1px dotted $color-9;
+        padding: 1rem 1rem;
+        height: 100%;
+        &--link{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        &--linkChange{
+            margin: 0.5rem ;
+            width: 100%;
+            align-self: flex-start;
+        }
+        &--updateLink{
+            margin: 0.5rem;
+            width: 100%;
+            align-self: flex-start;
+            display: flex;
+            flex-direction: column;
+        }
+        &--linkCount{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            & p{
+                font-size: 1.5rem;
+            }
+        }
+    }
+    &-btn{
+        transition: 0.4s;
+        @include mediaTwo();
+        &:hover{
+            background-color: $color-6;
+            
+        }
+    }
+}
+
+ .profilBtn{
+    align-self: flex-start;
+}
+
+.comments-container{
+    width: 100%;
+    margin: 0.5rem ;
+    
+    &_button{
+        background-color: $color-7;
+        border: 1px dotted $color-9;
+    }
+    &_area{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
+.commentBtn{
+    display: flex;
+    align-items: center;
+    &_close{
+        display: flex;
+        width: 1rem;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.comments{
+    @include light ($color-6, 61);
+    width: 100%;
+    max-height: 100%;
+    border-top: 1px dotted $color-6;
+    padding: 1rem 1rem;
+    margin: 0.8rem auto;
+    border-radius: 15px;
+    &_container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    &_header{
+        font-family: $font-1;
+        font-weight: 700;
+        font-size: 1.5rem;    
+    }
+    &_body{
+        height: 100%;
+    }
+    &_body--content{
+        font-weight: 400;
+        font-size: 1.5rem;
+    }
+    &_footer{
+        height: 100%;
+    }
+    &_pictures{
+        position: relative;
+        width: 60%;
+        height: 60%;
+    }
+    &_pictures--resize{
+        @include size();
+        border-radius: 15px;
+        max-width: 200px;
+        max-height: 150px;
+        object-fit: cover;
+    }
+    &_handle{
+        display: flex;
+        align-items: center;
+    }
+    &_date{
+        padding-right: 1rem;
+    }
+}
+.postHandle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+
+}
+
+.form-comment{
+    margin-top: 1rem;
+    padding: 2rem 0rem 0rem 0rem;
+    border-top: 1px dotted #A9A9A9;
+}
+.test-inputSend{
+    opacity: 0;
+    width: 1.5rem;
+    margin-top: -2.4rem;
+    margin-left: -0.1rem;
+    height: 1.5rem;
+}
+.iconSendPictures{
+    font-size: 1.5rem;
+}
+.iconSendComment{
+    font-size: 1.5rem;  
+}
+.content-container{
+    width: 92%;
+}
+.sending-comment{
+    margin: 0rem 0rem 0rem 0.5rem;
+    height: 2.4rem;
+}
+.commentPublication-container{
+    width: 100%;
+    display: flex;
+}
+.content-aréa{
+    height: 3rem;
+}
+
+.sendCommentBtn-container{
+    display: flex;
+    align-self: flex-end;
+    margin-bottom: 1rem;
+}
+
+.container-form{
+    padding: 1rem;
+    display: none;
+    display: block;
+    font-weight: 700;
+    margin: 0rem auto;
+    width: 90%;
+}
+
+.custom_two{
+    border: 1px solid $color-6;
+    background-color: white;
+    color: $color-6;
+    &:hover{
+background-color: $color-6;
+color: white;
+    }
+}

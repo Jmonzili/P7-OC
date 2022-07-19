@@ -1,0 +1,27 @@
+.navigation_link{
+        @include dark($color-7, 2);
+        padding: 1rem 1rem 0.5rem 1rem;
+        margin: 0.5rem 1rem;
+        border-radius: 10px 10px 0px 0px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+}
+
+.nav-active{
+        border-bottom: 1px solid $color-8;
+        transition: 0.5s;
+        color: $color-8;
+        @include media();
+        &:hover{
+                color: $color-8;
+        }
+}
+
+.nav-passive{
+        color: $color-6;
+        @include media();
+        &:hover{
+                color: $color-8;
+        }
+}
