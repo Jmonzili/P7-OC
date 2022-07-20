@@ -1,9 +1,9 @@
-import React from "react";
-import Posts from "../components/HomeSetting/getPosts/Posts";
-import Header from "../components/nav/Header";
-import ScrollBtn from "../components/ScrollBtn";
+import React from 'react';
+import Posts from '../components/HomeSetting/getPosts/Posts';
+import Header from '../components/nav/Header';
+import ScrollBtn from '../components/ScrollBtn';
 
-//Page d'accueil qui contient les posts
+//  Page d'accueil affichant le Wall contenant les posts
 const Home = () => {
   const dates = Date();
 

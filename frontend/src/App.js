@@ -3,8 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { UidContext } from './components/Context/AppContext';
 import Register from './pages/Register';
 import Home from './pages/Home';
+import MyProfil from './pages/MyProfil';
 import Profil from './pages/Profil';
-import Profils from './pages/Profils';
 import Reseau from './pages/Reseau';
 import SignOut from './pages/SignOut';
 import jwt_decode from 'jwt-decode';
@@ -74,8 +74,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Register />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/profil" element={<Profil />} />
-          <Route path="/profils" element={<Profils />} />
+          <Route path="/myprofil" element={<MyProfil />} />
+          <Route path="/profils" element={<Profil />} />
           <Route path="/reseau" element={<Reseau />} />
           <Route path="/signOut" element={<SignOut />} />
           <Route path="*" element={<Home />} />
