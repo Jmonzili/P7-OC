@@ -20,6 +20,7 @@ function App() {
   const [userAttachment, setUserAttachment] = useState([]);
 
   useEffect(() => {
+    //  Récupere les donnée du user dans la database
     const fetchUser = async () => {
       const token = localStorage.getItem('token');
       const decodedToken = jwt_decode(token);
@@ -37,6 +38,7 @@ function App() {
       });
     };
 
+    //  Controle la validité du token
     let userToken = '';
     const handleToken = () => {
       const token = localStorage.getItem('token');
