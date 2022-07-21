@@ -1,12 +1,12 @@
-import React from 'react';
-import { Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
-import Api from '../../Api/users';
+import React from "react";
+import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import Api from "../../Api/users";
 
-//  Suppression du profil d'un utilisateur
-const ProfilAdminDelete = () => {
+//Suppression du profil d'un utilisateur
+const ProfilsAdminDelete = () => {
   let navigate = useNavigate();
-  let profils = JSON.parse(localStorage.getItem('profils'));
+  let profils = JSON.parse(localStorage.getItem("profils"));
 
   const handleProfilAdminDelete = async (e) => {
     e.preventDefault();
@@ -16,19 +16,19 @@ const ProfilAdminDelete = () => {
         `Vous vous apprêtez à supprimer le profil de ${profils.data.user.username}, êtes-vous sûr de vouloir faire ça?`
       )
     ) {
-      //  Récupération des données de l'API
+      //Récupération des données de l'API
       await Api.delete(`users/profile/delete/${profils.data.user.id}`, {})
         .then((res, req) => {
           alert(
             `le profil de l'utilisateur ${profils.data.user.username} a bien été supprimer`
           );
-          navigate('/Home');
+          navigate("/Home");
         })
         .catch((err) => {
           console.log(err);
         });
     } else {
-      navigate('/Home');
+      navigate("/Home");
     }
   };
 
@@ -42,9 +42,9 @@ const ProfilAdminDelete = () => {
         aria-label="Supprimer le profil : Bouton de suppression"
       >
         Supprimer le profil
-      </Button>{' '}
+      </Button>{" "}
     </div>
   );
 };
 
-export default ProfilAdminDelete;
+export default ProfilsAdminDelete;

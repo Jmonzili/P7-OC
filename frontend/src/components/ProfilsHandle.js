@@ -1,19 +1,19 @@
-import React, { useContext } from 'react';
-import { Button } from 'react-bootstrap';
-import { UidContext } from './Context/AppContext';
-import ProfilAdminDelete from './ProfilSetting/ProfilAdminDelete';
+import React, { useContext } from "react";
+import { Button } from "react-bootstrap";
+import { UidContext } from "./Context/AppContext";
+import ProfilsAdminDelete from "./ProfilSetting/ProfilsAdminDelete";
 
 //Sous structure de la page Profils, profil des autres utilisateurs
-const ProfilHandle = () => {
+const ProfilsHandle = () => {
   const userData = useContext(UidContext);
   //Récupération des données de profil dans le local storage
-  let profils = JSON.parse(localStorage.getItem('profils'));
+  let profils = JSON.parse(localStorage.getItem("profils"));
 
   return (
     <div className="profil">
       <div className="profil_card">
         <div className="profil_image-container">
-          {' '}
+          {" "}
           {profils.data.user.attachment ? (
             <img
               src={profils.data.user.attachment}
@@ -51,7 +51,7 @@ const ProfilHandle = () => {
             </div>
             {userData.userAdmin ? (
               <div className="profil-section_delete">
-                <ProfilAdminDelete />
+                <ProfilsAdminDelete />
               </div>
             ) : null}
           </div>
@@ -61,4 +61,4 @@ const ProfilHandle = () => {
   );
 };
 
-export default ProfilHandle;
+export default ProfilsHandle;

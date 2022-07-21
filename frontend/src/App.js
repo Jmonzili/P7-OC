@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { UidContext } from './components/Context/AppContext';
-import Register from './pages/Register';
-import Home from './pages/Home';
-import MyProfil from './pages/MyProfil';
-import Profil from './pages/Profil';
-import Reseau from './pages/Reseau';
-import SignOut from './pages/SignOut';
-import jwt_decode from 'jwt-decode';
-import Api from './Api/users';
+import React, { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { UidContext } from "./components/Context/AppContext";
+import Register from "./pages/Register";
+import Home from "./pages/Home";
+import Profil from "./pages/Profil";
+import Profils from "./pages/Profils";
+import Reseau from "./pages/Reseau";
+import SignOut from "./pages/SignOut";
+import jwt_decode from "jwt-decode";
+import Api from "./Api/users";
 
 function App() {
   //Récupération de données utilisateurs à utiliser dans UseContext
@@ -20,13 +20,12 @@ function App() {
   const [userAttachment, setUserAttachment] = useState([]);
 
   useEffect(() => {
-    //  Récupere les donnée du user dans la database
     const fetchUser = async () => {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem("token");
       const decodedToken = jwt_decode(token);
       const userId = decodedToken.userId;
       await Api.get(`users/profile/${userId}`, {
-        headers: { 'Content-Type': 'application/json' },
+        headers: { "Content-Type": "application/json" },
         withCredentials: true,
       }).then((res) => {
         setUserData(res.data.user.id);
@@ -38,12 +37,11 @@ function App() {
       });
     };
 
-    //  Controle la validité du token
-    let userToken = '';
+    let userToken = "";
     const handleToken = () => {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem("token");
       if (token) {
-        const decodedToken = jwt_decode(localStorage.getItem('token'));
+        const decodedToken = jwt_decode(localStorage.getItem("token"));
         const dateNow = new Date();
         if (decodedToken.exp > dateNow / 1000) {
           userToken = true;
@@ -74,8 +72,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Register />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/myprofil" element={<MyProfil />} />
-          <Route path="/profils" element={<Profil />} />
+          <Route path="/profil" element={<Profil />} />
+          <Route path="/profils" element={<Profils />} />
           <Route path="/reseau" element={<Reseau />} />
           <Route path="/signOut" element={<SignOut />} />
           <Route path="*" element={<Home />} />

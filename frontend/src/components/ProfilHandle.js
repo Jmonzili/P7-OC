@@ -1,28 +1,28 @@
-import React, { useContext, useState, useEffect } from 'react';
-import { UidContext } from './Context/AppContext';
-import ProfilDelete from './ProfilSetting/ProfilDelete';
-import { Form, Button } from 'react-bootstrap';
-import axios from 'axios';
-import Api from '../Api/users';
-import jwt_decode from 'jwt-decode';
+import React, { useContext, useState, useEffect } from "react";
+import { UidContext } from "../components/Context/AppContext";
+import ProfilDelete from "./ProfilSetting/ProfilDelete";
+import { Form, Button } from "react-bootstrap";
+import axios from "axios";
+import Api from "../Api/users";
+import jwt_decode from "jwt-decode";
 
 //Sous structure de la page Profil
-const MyProfilHandle = () => {
+const ProfilHandle = () => {
   //Récupération des données de l'utilisateur connecté avec use context
   const userData = useContext(UidContext);
 
   const [profils, setProfils] = useState();
   const [newProfil, setNewProfil] = useState({
-    bio: '',
-    attachment: '',
+    bio: "",
+    attachment: "",
   });
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
   const decodedToken = jwt_decode(token);
   const userId = decodedToken.userId;
 
   const handleProfils = () => {
     Api.get(`users/profile/${userId}`, {
-      headers: { 'Content-Type': 'application/json' },
+      headers: { "Content-Type": "application/json" },
       withCredentials: true,
     })
       .then((res) => {
@@ -43,17 +43,17 @@ const MyProfilHandle = () => {
 
     //Préparation des données du formulaire
     const formData = new FormData();
-    formData.append('bio', newProfil.bio);
-    formData.append('attachment', newProfil.attachment);
+    formData.append("bio", newProfil.bio);
+    formData.append("attachment", newProfil.attachment);
 
-    if (newProfil.attachment !== '') {
+    if (newProfil.attachment !== "") {
       axios
         .put(
           `${process.env.REACT_APP_API_URL}api/users/profile/update/${userId}`,
           formData,
           {
             headers: {
-              Authorization: `Bearer ${localStorage.getItem('token')}`,
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
             withCredentials: true,
           }
@@ -73,7 +73,7 @@ const MyProfilHandle = () => {
   };
 
   const handleProfil = (e) => {
-    if (e.target.name !== 'attachment') {
+    if (e.target.name !== "attachment") {
       setNewProfil({ ...newProfil, [e.target.name]: e.target.value });
     } else {
       setNewProfil({
@@ -86,9 +86,9 @@ const MyProfilHandle = () => {
   const [profilUpdateBtn, setProfilUpdateBtn] = useState(false);
 
   const profilUpdateModals = (e) => {
-    if (e.target.id === 'ok') {
+    if (e.target.id === "ok") {
       setProfilUpdateBtn(true);
-    } else if (e.target.id === 'ko') {
+    } else if (e.target.id === "ko") {
       setProfilUpdateBtn(false);
     }
   };
@@ -141,7 +141,7 @@ const MyProfilHandle = () => {
                       aria-label="Modifier le profil : Bouton de modification"
                     >
                       modifier le profil
-                    </Button>{' '}
+                    </Button>{" "}
                     <Button
                       variant="custom"
                       className="profil-btn"
@@ -149,7 +149,7 @@ const MyProfilHandle = () => {
                       id="ko"
                     >
                       X
-                    </Button>{' '}
+                    </Button>{" "}
                   </div>
                   {profilUpdateBtn !== false ? (
                     <div>
@@ -226,4 +226,4 @@ const MyProfilHandle = () => {
   );
 };
 
-export default MyProfilHandle;
+export default ProfilHandle;

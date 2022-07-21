@@ -1,12 +1,12 @@
-import React from 'react';
-import Header from '../components/nav/Header';
-import ProfilHandle from '../components/ProfilsHandle';
-import ScrollBtn from '../components/ScrollBtn';
+import React from "react";
+import Header from "../components/nav/Header";
+import ProfilHandle from "../components/ProfilHandle";
+import ScrollBtn from "../components/ScrollBtn";
 
-//  Page affichant le profil des autres utilisateurs
+//Page de profil de l'utilisateur connecté
 const Profil = () => {
   return (
-    <div>
+    <div className="profil-body">
       <Header />
       <ProfilHandle />
       <ScrollBtn />

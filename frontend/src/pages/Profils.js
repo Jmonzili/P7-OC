@@ -1,19 +1,17 @@
 import React from "react";
-import Posts from "../components/HomeSetting/getPosts/Posts";
 import Header from "../components/nav/Header";
+import ProfilsHandle from "../components/ProfilsHandle";
 import ScrollBtn from "../components/ScrollBtn";
 
-//Page d'accueil qui contient les posts
-const Home = () => {
-  const dates = Date();
-
+//Page de profil des autres utilisateurs
+const Profils = () => {
   return (
     <div>
       <Header />
-      <Posts date={dates} />
+      <ProfilsHandle />
       <ScrollBtn />
     </div>
   );
 };
 
-export default Home;
+export default Profils;
