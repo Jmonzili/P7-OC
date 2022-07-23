@@ -1,5 +1,6 @@
-"use strict";
-const { Model } = require("sequelize");
+'use strict';
+const { Model } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Post extends Model {
     /**
@@ -13,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: {
           allowNull: false,
         },
-        onDelete: "CASCADE",
+        onDelete: 'CASCADE',
       });
       models.Post.hasMany(models.Comment);
       models.Post.hasMany(models.Like);
@@ -29,8 +30,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      tableName: "posts",
-      modelName: "Post",
+      tableName: 'posts',
+      modelName: 'Post',
     }
   );
   return Post;
