@@ -20,7 +20,7 @@ Les variables d'environnement pour le code de l'API se trouvent dans le dossier 
 
 DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DEVELOPMENT sont les éléments d'authentification permettant de se connecter à la base de données.
 
-JWT_TOKEN permet à json web token de créer des tokens d'authentification.
+JWT_TOKEN correspond à la clef secrete utiliser pour signer les tokens d'authentification.
 
 PORT est le port sur lequel l'application va s'ouvrir.
 
