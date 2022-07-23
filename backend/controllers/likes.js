@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 dotenv.config();
 
-// CTRL de création des likes
+// Incrémentaion & décrémentation d'un like
 exports.likePost = async (req, res, next) => {
   const token = req.headers.authorization.split(' ')[1];
   const decodedToken = jwt.verify(token, process.env.JWT_TOKEN);
@@ -20,6 +20,7 @@ exports.likePost = async (req, res, next) => {
         { where: { UserId: userId, PostId: postId } },
         { truncate: true, restartIdentity: true }
       );
+      //  Décrémentation du like
       const post = await Post.findOne({ where: { id: postId } });
       Post.update(
         {
@@ -37,6 +38,7 @@ exports.likePost = async (req, res, next) => {
         PostId: postId,
       });
       const post = await Post.findOne({ where: { id: postId } });
+      //  Incrémentation du like
       Post.update(
         {
           likes: post.likes + 1,
@@ -53,7 +55,7 @@ exports.likePost = async (req, res, next) => {
   }
 };
 
-// CTRL de lecture des likes
+// Lecture des likes
 exports.readAllLikes = async (req, res, next) => {
   try {
     const like = await Post.findAll({

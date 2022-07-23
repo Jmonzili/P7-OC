@@ -1,10 +1,11 @@
+const { User, Post, Comment } = require('../models'); // importation des models
 const bcrypt = require('bcrypt'); // Package de cryptage
 const jwt = require('jsonwebtoken'); // Création et vérification du Token
 const fs = require('fs');
 const dotenv = require('dotenv'); // Importation de dotenv
-const { User, Post, Comment } = require('../models');
 dotenv.config();
 
+//  Inscription des utilisateurs
 exports.signup = async (req, res) => {
   try {
     const { email, username, password, bio } = req.body;
@@ -45,7 +46,7 @@ exports.signup = async (req, res) => {
   }
 };
 
-// CTRL de lecture des utilisateurs
+//  Lecture des utilisateurs
 exports.getAllUsers = async (req, res, next) => {
   try {
     const users = await User.findAll({
@@ -57,7 +58,7 @@ exports.getAllUsers = async (req, res, next) => {
   }
 };
 
-// CTRL de login des utilisateurs
+//  Fonction de connection
 exports.login = async (req, res, next) => {
   const { email, password } = req.body;
   try {
@@ -87,7 +88,7 @@ exports.login = async (req, res, next) => {
   }
 };
 
-// CTRL de récupération du profil des utilisateurs
+//  Récupération d'un seul utilisateur
 exports.userProfile = async (req, res, next) => {
   try {
     const user = await User.findOne({
@@ -103,7 +104,7 @@ exports.userProfile = async (req, res, next) => {
   }
 };
 
-// CTRL de modification du profil des utilisateurs
+//  Modification d'un utilisateur
 exports.modifyProfile = async (req, res, next) => {
   const token = req.headers.authorization.split(' ')[1];
   const decodedToken = jwt.verify(token, process.env.JWT_TOKEN);
@@ -146,6 +147,7 @@ exports.modifyProfile = async (req, res, next) => {
   }
 };
 
+//  Suppression d'un utilisateur
 exports.deleteProfile = async (req, res, next) => {
   const token = req.headers.authorization.split(' ')[1];
   const decodedToken = jwt.verify(token, process.env.JWT_TOKEN);

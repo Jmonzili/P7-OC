@@ -1,13 +1,12 @@
-// Importation des models, du système de fichiers, de Json web Token et Dotenv
+//  Importation des models, du système de fichiers, de Json web Token et Dotenv
 const { User, Post, Comment } = require('../models');
 const fs = require('fs');
 const jwt = require('jsonwebtoken');
-
 const dotenv = require('dotenv');
 
 dotenv.config();
 
-// CTRL de création des posts
+//  Créer un post
 exports.createPost = async (req, res, next) => {
   const token = req.headers.authorization.split(' ')[1];
   const decodedToken = jwt.verify(token, process.env.JWT_TOKEN);
@@ -36,7 +35,7 @@ exports.createPost = async (req, res, next) => {
   }
 };
 
-// CTRL de lecture de tous les posts
+//  Lecture de tous les posts
 exports.readAllPosts = async (req, res) => {
   try {
     const posts = await Post.findAll({
@@ -60,7 +59,7 @@ exports.readAllPosts = async (req, res) => {
   }
 };
 
-// CTRL de lecture de tous les posts d'un utilisateur
+// Lecture de tous les posts d'un utilisateur
 exports.readAllPostUser = async (req, res, next) => {
   try {
     const post = await Post.findAll({
@@ -77,7 +76,7 @@ exports.readAllPostUser = async (req, res, next) => {
   }
 };
 
-// CTRL de lecture d'un post
+// Lecture d'un post
 exports.readOnePost = async (req, res) => {
   try {
     const post = await Post.findOne({
@@ -92,7 +91,7 @@ exports.readOnePost = async (req, res) => {
   }
 };
 
-// CTRL de lecture d'un utilisateur en rapport avec son post
+//  Récupération du profil de l'auteur du post
 exports.userProfileByPost = async (req, res, next) => {
   try {
     const post = await Post.findOne({
@@ -122,7 +121,7 @@ exports.userProfileByPost = async (req, res, next) => {
   }
 };
 
-// CTRL de modification d'un post
+//  Modifier un post
 exports.updatePost = async (req, res, next) => {
   const token = req.headers.authorization.split(' ')[1];
   const decodedToken = jwt.verify(token, process.env.JWT_TOKEN);
@@ -153,7 +152,7 @@ exports.updatePost = async (req, res, next) => {
   }
 };
 
-// CTRL de suppression d'un post
+//  Suppression d'un post
 exports.deletePost = async (req, res, next) => {
   const token = req.headers.authorization.split(' ')[1];
   const decodedToken = jwt.verify(token, process.env.JWT_TOKEN);
